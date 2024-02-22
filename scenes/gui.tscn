@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://gqm2x3fjtx5t"]
+
+[ext_resource type="Script" path="res://assets/scripts/gui.gd" id="1_6aw3l"]
+[ext_resource type="Theme" uid="uid://dnfh4218u5ar2" path="res://assets/settings/theme.tres" id="1_dwo0b"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_6aw3l")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dwo0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 266.0
+offset_bottom = 155.0
+
+[node name="Score" type="Label" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 7
+text = "LEVEL 1 EASY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "CREDITS:1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InsertCoin" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "INSERT COIN
+"
+horizontal_alignment = 1
+vertical_alignment = 1

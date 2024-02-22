@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://75qvcwvhkxpk"]
+
+[ext_resource type="Script" path="res://assets/scripts/shot.gd" id="1_mt5yr"]
+[ext_resource type="Texture2D" uid="uid://38n17mo6ypcd" path="res://assets/images/shoot/shoot1.png" id="1_ybxtd"]
+[ext_resource type="Texture2D" uid="uid://bot55spd8um1q" path="res://assets/images/shoot/shoot2.png" id="2_o36al"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_waxvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ybxtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o36al")
+}],
+"loop": true,
+"name": &"Shot",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5og2d"]
+size = Vector2(16, 5)
+
+[node name="Shot" type="Area2D" groups=["Shot"]]
+script = ExtResource("1_mt5yr")
+
+[node name="Animated" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_waxvj")
+animation = &"Shot"
+autoplay = "Shot"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_5og2d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.500001, 5.96046e-08)
+scale = Vector2(0.75, 0.3)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
